@@ -3,7 +3,7 @@ some config files about Hyprland, mako and waybar.
 
 ## Screenshot
 
-[SS](./screenshot.png)
+![SS](./screenshot.png)
 
 ## Some utils
 
