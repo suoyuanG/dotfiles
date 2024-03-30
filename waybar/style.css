@@ -1,6 +1,6 @@
 * {
 	border: none;
-	border-radius: 10;
+	border-radius: 10px;
     font-family: "Font Awesome, Noto Sans Mono" ;
 	font-size: 13px;
 	min-height: 10px;
@@ -13,6 +13,7 @@ window#waybar {
 window#waybar.hidden {
 	opacity: 0.2;
 }
+
 
 #window {
 	margin-top: 6px;
@@ -142,7 +143,6 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	padding-right: 10px;
 	border-radius: 10px;
-    /* font-size: 15px; */
 	transition: none;
 	color: #9681dc;
 	background: #2b2726;
@@ -158,4 +158,16 @@ window#waybar.hidden {
 	transition: none;
 	color: #161320;
 	background: #96CDFB;
+}
+
+#mpris {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #9681dc;
+	background: #2b2726;
 }
