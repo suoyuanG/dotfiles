@@ -15,3 +15,4 @@ some config files about Hyprland, mako and waybar.
 |[grim](https://sr.ht/~emersion/grim/) + [slurp](https://github.com/emersion/slurp)|Screentshot tools|
 |[wofi](https://hg.sr.ht/~scoopta/wofi)|App launcher|
 |[mako](https://github.com/emersion/mako)|Notification daemon|
+|[kitty](https://github.com/kovidgoyal/kitty)|Terminal emulator|
