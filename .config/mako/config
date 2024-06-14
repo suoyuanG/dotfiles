@@ -1,7 +1,10 @@
+format=<b>%a ⏵</b> %s\n%b
 sort=-time
 layer=overlay
-background-color=#2e34407f
-width=450
+#background-color=#2e34407f
+anchor=top-center
+background-color=#2e3440
+width=350
 height=150
 border-size=3
 border-color=#99c0d0
@@ -10,10 +13,10 @@ icons=0
 max-icon-size=64
 default-timeout=5000
 ignore-timeout=0
-font="Noto Sans Mono CJK SC" 12
+font="Noto Sans Mono CJK SC" 10
 margin=12
-padding=12,20
-
+#padding=12,20
+padding=0,5,10
 [urgency=low]
 border-color=#cccccc
 
