@@ -65,17 +65,17 @@
         "format": "{player_icon} {dynamic}",
         "format-paused": "{status_icon} <i>{dynamic}</i>",
         "player-icons": {
-            "default": ""
+            "default": " "
         },
         "status-icons": {
-            "paused": ""
+            "paused": " "
         },
         "max-length": 25
     },
     "network": {
         "format-wifi": "  {essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-        "format-disconnected": "",
+        "format-ethernet": "{ifname}  ",
+        "format-disconnected": " ",
         "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
     },

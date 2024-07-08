@@ -5,7 +5,7 @@
 }
 
 #window {
-  background: rgba(125, 105, 152, 0.5);
+  background: rgba(78, 66, 94, 0.5);
   margin: auto;
   padding: 10px;
   border-radius: 20px;
@@ -14,7 +14,7 @@
 
 #input {
   padding: 10px;
-  color: #2f3235;
+  color: #b1ebeb;
   margin-bottom: 10px;
   border-radius: 15px;
 }
