@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "hyprland/workspaces",
+        "sway/workspaces",
         "network",
         "cpu",
         "memory"
@@ -10,23 +10,55 @@
     "modules-center": [
         "mpris",
         "privacy",
-        "hyprland/window"
+        "sway/window"
     ],
     "modules-right": [
+        
         "tray",
         "wireplumber",
         "backlight",
         "clock",
         "battery"
     ],
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+    "sway/window": {
+        "format": "{}",
+        "max-length": 35,
+        "all-outputs" : true,
+        "offscreen-css" : true,
+        "offscreen-css-text": "(inactive)",
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "  $1",
+            "(.*) - fish": "> [$1]"
+        }
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": " "
+        }
+    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": " "
         },
         "sort-by-number": true,
         "on-click": "activate",
@@ -36,10 +68,10 @@
     "hyprland/window": {
         "format": "{}",
         "rewrite": {
-            "(.*) — Mozilla Firefox": "  $1",
+            "(.*) — Mozilla Firefox": "󰈹 $1",
             "(.*) - bash": "  [$1]",
-            "(.*) - Brave": " [$1]",
-            "(.*) - VSCodium": " [$1]"
+            "(.*) - Brave": "  [$1]",
+            "(.*) - VSCodium": "  [$1]"
         },
         "separate-outputs": true,
         "max-length": 35

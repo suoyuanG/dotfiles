@@ -1,8 +1,8 @@
 * {
 	border: none;
 	border-radius: 10px;
-    font-family: "Font Awesome, Noto Sans Mono CJK SC" ;
-	font-size: 13px;
+  	font-family: "Font Awesome, Noto Sans Mono CJK SC, Hack Nerd Font" ;
+	font-size: 15px;
 	min-height: 10px;
 }
 
@@ -126,8 +126,8 @@ window#waybar.hidden {
 #workspaces {
 	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 10px;
 	margin-bottom: 0px;
+	padding-left: 10px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
@@ -135,18 +135,12 @@ window#waybar.hidden {
 	background: #e69981;
 }
 
-#taskbar {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #e69981;
+#workspaces button {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
-
 
 #window {
 	margin-top: 6px;
