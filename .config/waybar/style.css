@@ -2,7 +2,7 @@
 	border: none;
 	border-radius: 10px;
   	font-family: "Font Awesome, Noto Sans Mono CJK SC, Hack Nerd Font" ;
-	font-size: 15px;
+	font-size: 13px;
 	min-height: 10px;
 }
 
@@ -133,13 +133,6 @@ window#waybar.hidden {
 	transition: none;
 	color: #161320;
 	background: #e69981;
-}
-
-#workspaces button {
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 8px;
-	padding-right: 8px;
 }
 
 #window {

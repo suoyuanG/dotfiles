@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "sway/workspaces",
+        "hyprland/workspaces",
         "network",
         "cpu",
         "memory"
@@ -10,10 +10,9 @@
     "modules-center": [
         "mpris",
         "privacy",
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
-        
         "tray",
         "wireplumber",
         "backlight",
