@@ -5,16 +5,16 @@
 }
 
 #window {
-  background: rgba(78, 66, 94, 0.5);
+  background-color: #8087a2;
   margin: auto;
   padding: 10px;
   border-radius: 20px;
-  border: 5px solid #b072d1;
+  border: 5px solid #b7bdf8;
 }
 
 #input {
   padding: 10px;
-  color: #b1ebeb;
+  color: #cad3f5;
   margin-bottom: 10px;
   border-radius: 15px;
 }
@@ -33,7 +33,7 @@
 }
 
 #entry:selected {
-  background-color: #3f4858;
+  background-color: #939ab7;
 }
 
 #text {

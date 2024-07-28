@@ -13,9 +13,10 @@ require("lazy").setup({
   },
   { import = "community" },
   { import = "plugins" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
-  install = { colorscheme = { "astrodark", "habamax" } },
+  install = { colorscheme = { "catppuccin-macchiato", "astrodark", "habamax" } },
   ui = { backdrop = 100 },
   performance = {
     rtp = {

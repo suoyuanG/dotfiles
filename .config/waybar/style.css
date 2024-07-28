@@ -1,3 +1,5 @@
+@import "themes/macchiato.css";
+
 * {
 	border: none;
 	border-radius: 10px;
@@ -21,7 +23,7 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-    color: transparent;
+  color: transparent;
 	background: transparent;
 }
 #network {
@@ -32,8 +34,8 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #bd93f9;
+	color: @base;
+	background-color: @pink;
 }
 
 #wireplumber {
@@ -44,8 +46,8 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #1A1826;
-	background: #FAE3B0;
+	background: @yellow;
+	color: @base;
 }
 
 #battery {
@@ -56,17 +58,17 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #B5E8E0;
+	color: @base;
+	background-color: @sapphire;
 }
 
 #battery.charging, #battery.plugged {
 	color: #161320;
-    background-color: #B5E8E0;
+    background-color: @blue;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #B5E8E0;
+    background-color: @sky;
     color: #161320;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -83,8 +85,8 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #ABE9B3;
+	color: @base;
+	background-color: @green;
 }
 
 #memory {
@@ -95,8 +97,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #DDB6F2;
+	color: @base;
+	background-color: @maroon;
 }
 
 #cpu {
@@ -107,8 +109,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #96CDFB;
+	color: @base;
+	background: @sky;
 }
 
 #tray {
@@ -119,8 +121,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #B5E8E0;
-	background: #c1b9dc;
+	color: @base;
+	background-color: @peach;
 }
 
 #workspaces {
@@ -131,8 +133,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #e69981;
+	color: @base;
+	background-color: @lavender;
 }
 
 #window {
@@ -143,8 +145,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #9681dc;
-	background: #2b2726;
+	color: @base;
+	background-color: @rosewater;
 }
 
 #backlight {
@@ -155,8 +157,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #96CDFB;
+	color: @base;
+	background-color: @lavender;
 }
 
 #mpris {
@@ -167,8 +169,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #9681dc;
-	background: #2b2726;
+	color: @base;
+	background-color: @rosewater;
 }
 
 #privacy {
@@ -179,6 +181,6 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #a89ff0;
+	color: @base;
+	background-color: @flamingo;
 }
