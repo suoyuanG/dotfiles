@@ -1,6 +1,5 @@
 local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local mason_lspconfig = require("mason-lspconfig")
 local navic = require("nvim-navic")
 
@@ -22,7 +21,6 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- delay update diagnostics
     update_in_insert = true,
   }
 )
@@ -80,12 +78,10 @@ local keymap = vim.keymap
 
 
 mason_lspconfig.setup({
-    -- A list of servers to automatically install if they're not already installed
     ensure_installed = { 'pylsp', 'lua_ls' },
 })
 
 mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
@@ -107,32 +103,33 @@ mason_lspconfig.setup_handlers({
             },
           },
         })
-        lspconfig.clangd.setup({
-          on_attach = function(client, buffer)
-            navic.attach(client, buffer)
-          end,
-         -- on_attach = on_attach,
-          flags = {
-            debounce_text_changes = 150,  -- 可以调整为更低的值来更频繁地更新诊断信息
-          },
-          capabilities = capabilities,
-          cmd = { "clangd", 
-                  "--background-index", 
-                  "--cross-file-rename",
-                  "--clang-tidy",
-                 "--all-scopes-completion",
-                 "--cross-file-rename",
-                 "--completion-style=detailed",
-                 "--header-insertion-decorators",
-                 "--header-insertion=iwyu",
-                 "--pch-storage=memory",
-                },
-          settings = {
-            clangd = {
-              arguments = { "--compile-commands-dir=build" },  -- 根据你的项目调整这个参数
-            },
-          },
-        })
-
       end,
+      lspconfig.clangd.setup({
+        on_attach = function(client, buffer)
+          navic.attach(client, buffer)
+        end,
+       -- on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,  -- 可以调整为更低的值来更频繁地更新诊断信息
+        },
+        capabilities = capabilities,
+        cmd = {
+          "clangd",
+          "-j=12",
+          "--background-index",
+          "--cross-file-rename",
+          "--clang-tidy",
+          "--all-scopes-completion",
+          "--cross-file-rename",
+          "--completion-style=detailed",
+          "--header-insertion-decorators",
+          "--header-insertion=iwyu",
+          "--pch-storage=memory",
+        },
+        settings = {
+          completions = {
+            completeFunctionCalls = true
+          }
+        },
+      })
     })

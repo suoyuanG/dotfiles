@@ -22,7 +22,12 @@ return {
       require("plugins.config.ui_fs_tree")
     end,
   },
-  "lewis6991/gitsigns.nvim",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function ()
+     require('gitsigns').setup()
+    end
+  },
   {
     'romgrk/barbar.nvim',
     dependencies = {
@@ -36,6 +41,5 @@ return {
       -- insert_at_start = true,
       -- …etc.
     },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 }

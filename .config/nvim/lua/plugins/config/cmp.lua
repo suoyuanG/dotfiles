@@ -45,7 +45,8 @@ cmp.setup({
   },
   snippet = {
       expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- vim.snippet.expand(args.body)
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -91,5 +92,6 @@ cmp.setup({
     { name = 'luasnip' },     -- For luasnip user
     { name = 'buffer' },      -- For buffer word completion
     { name = 'path' },        -- For path completion
+    { name = 'nvim_lsp_signature_help' }
   })
 })
