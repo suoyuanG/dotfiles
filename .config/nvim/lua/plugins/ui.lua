@@ -6,7 +6,7 @@ return {
       "nvim-lua/lsp-status.nvim",
     },
     config = function()
-        require("plugins.config.ui_bar")
+        require("plugins.config.ui_bar_light")
     end,
   },
   {
@@ -41,5 +41,8 @@ return {
       -- insert_at_start = true,
       -- …etc.
     },
+  },
+  {
+    'rcarriga/nvim-notify',
   },
 }

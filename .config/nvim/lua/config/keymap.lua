@@ -4,6 +4,9 @@ local opts = {
 }
 local map = vim.api.nvim_set_keymap
 
+map('n', '<c-s>', '<Cmd> update<CR>', opts)
+map('i', '<c-s>', '<Cmd> update<CR>', opts)
+
 map('i', '<C-h>', '<Left>', { noremap = true, silent = true })
 map('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 map('i', '<C-j>', '<Down>', { noremap = true, silent = true })
@@ -48,7 +51,7 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 map("n", "<Space>ff", "<cmd>Telescope find_files<cr>", opts)
 map("n", "<Space>fr", "<cmd>Telescope oldfiles<cr>", opts)
 map("n", "<Space>fg", "<cmd>Telescope live_grep<cr>",  opts)
-map("n", "<Space>fc", "<cmd>Telescope grep_string<cr>",  opts)
+map("n", "<Space>fs", "<cmd>Telescope grep_string<cr>",  opts)
 map("n", "<Space>ft", "<cmd>TodoTelescope<cr>", opts)
 
 map('n', '<F5>', "<cmd> require'dap'.continue()<CR>", opts)
@@ -64,3 +67,6 @@ map('n', '<space>tv', '<cmd> ToggleTerm direction=vertical<cr>', opts)
 
 map('n', '<space>e', '<cmd> Neotree filesystem reveal left<cr>', opts)
 map('n', '<space>ec', '<cmd> Neotree close<cr>', opts)
+
+map('n', '<leader>f', '<cmd>vim.lsp.buf.format({async = true})<CR>', { noremap = true, silent = true })
+map('v', '<leader>f', '<cmd>vim.lsp.buf.range_formatting({})<CR>', { noremap = true, silent = true })
