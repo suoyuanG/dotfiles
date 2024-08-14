@@ -6,7 +6,7 @@ return {
       "nvim-lua/lsp-status.nvim",
     },
     config = function()
-        require("plugins.config.ui_bar_light")
+        require("plugins.config.ui_bar_dark")
     end,
   },
   {

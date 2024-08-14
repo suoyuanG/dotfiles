@@ -1,7 +1,6 @@
-# hyprconfig
-some config files about Hyprland, mako and waybar.
-
 ## Screenshot
+
+I'm too lazy to update the screenshot, but basically not changed much
 
 ![SS](./screenshot.png)
 
@@ -11,8 +10,8 @@ some config files about Hyprland, mako and waybar.
 |:--|:--|
 |[waybar](https://github.com/Alexays/Waybar)|Status bars|
 |[swaybg](https://github.com/swaywm/swaybg)|Wallpaper|
-|[cliphist]([cliphist](https://github.com/sentriz/cliphist))|Clipboard-Managers|
+|[cliphist](https://github.com/sentriz/cliphist)|Clipboard-Managers|
 |[grim](https://sr.ht/~emersion/grim/) + [slurp](https://github.com/emersion/slurp)|Screentshot tools|
 |[wofi](https://hg.sr.ht/~scoopta/wofi)|App launcher|
 |[mako](https://github.com/emersion/mako)|Notification daemon|
-|[kitty](https://github.com/kovidgoyal/kitty)|Terminal emulator|
+|[foot](https://codeberg.org/dnkl/foot)|Terminal emulator|

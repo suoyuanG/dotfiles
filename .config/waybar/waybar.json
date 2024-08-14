@@ -19,14 +19,6 @@
         "clock",
         "battery"
     ],
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 14,
-        "icon-theme": "Numix-Circle",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close"
-    },
     "sway/window": {
         "format": "{}",
         "max-length": 35,
@@ -131,11 +123,13 @@
         "format-muted": "",
         "format-icons": [
             "",
-            "",
-            ""
+            " ",
+            " "
         ],
         "on-click": "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-        "on-click-right": "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "on-click-right": "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "on-scroll-up" : "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+        "on-scroll-down" : "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
     },
     "battery": {
         "states": {
@@ -148,22 +142,24 @@
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
         ]
     },
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
         "format-icons": [
-            "",
-            ""
+            " ",
+            " "
         ],
         "on-click": "/usr/bin/brightnessctl set 5%+",
-        "on-click-right": "/usr/bin/brightnessctl set 5%-"
+        "on-click-right": "/usr/bin/brightnessctl set 5%-",
+        "on-scroll-up" : "/usr/bin/brightnessctl set 1%+",
+        "on-scroll-down" : "/usr/bin/brightnessctl set 1%-"
     },
     "privacy": {
         "icon-spacing": 4,
