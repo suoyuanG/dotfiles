@@ -1,6 +1,6 @@
 local opts = {
-    noremap = true,      -- non-recursive
-    silent = true,       -- do not show message
+    noremap = true,
+    silent = true,
 }
 local map = vim.api.nvim_set_keymap
 
@@ -42,17 +42,24 @@ map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
-
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-map("n", "<Space>ff", "<cmd>Telescope find_files<cr>", opts)
-map("n", "<Space>fr", "<cmd>Telescope oldfiles<cr>", opts)
-map("n", "<Space>fg", "<cmd>Telescope live_grep<cr>",  opts)
-map("n", "<Space>fs", "<cmd>Telescope grep_string<cr>",  opts)
-map("n", "<Space>ft", "<cmd>TodoTelescope<cr>", opts)
+
+map("n", "<Space>tf", "<cmd>Telescope find_files<cr>", opts)
+map("n", "<Space>tr", "<cmd>Telescope oldfiles<cr>", opts)
+map("n", "<Space>tg", "<cmd>Telescope live_grep<cr>",  opts)
+map("n", "<Space>ts", "<cmd>Telescope grep_string<cr>",  opts)
+map("n", "<Space>tt", "<cmd>Telescope<cr>", opts)
+map("n", "<Space>tgc", "<cmd>Telescope git_commits<cr>", opts)
+map("n", "<Space>tgs", "<cmd>Telescope git_status<cr>", opts)
+map("n", "<Space>ttd", "<cmd>Telescope lsp_definitions<cr>", opts)
+map("n", "<Space>td", "<cmd>Telescope diagnostics<cr>", opts)
+map("n", "<Space>tr", "<cmd>Telescope lsp_references<cr>", opts)
+map("n", "<Space>tuc", "<cmd>Telescope lsp_incoming_calls<cr>", opts)
+map("n", "<Space>tdc", "<cmd>Telescope lsp_outgoing_calls<cr>", opts)
 
 map('n', '<F5>', "<cmd> require'dap'.continue()<CR>", opts)
 map('n', '<F10>', "<cmd> require'dap'.step_over()<CR>", opts)

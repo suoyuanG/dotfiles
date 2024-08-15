@@ -1,4 +1,4 @@
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 local cmp = require("cmp")
 
 
@@ -30,13 +30,21 @@ local kind_icons = {
   TypeParameter = '󰅲',
 }
 
-require("luasnip.loaders.from_vscode").lazy_load()
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0
+      and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s")
+      == nil
+end
 
-luasnip.setup({
-    update_events = { "TextChanged", "TextChangedI" },
-    region_check_events = { "CursorMoved", "CursorHold", "InsertEnter", "CursorMovedI" },
-    history = true,
-})
+-- require("luasnip.loaders.from_vscode").lazy_load()
+-- require("snippets").setup({ friendly_snippets = true })
+
+-- luasnip.setup({
+--     update_events = { "TextChanged", "TextChangedI" },
+--     region_check_events = { "CursorMoved", "CursorHold", "InsertEnter", "CursorMovedI" },
+--     history = true,
+-- })
 
 cmp.setup({
    completion = {
@@ -44,20 +52,33 @@ cmp.setup({
   },
   snippet = {
       expand = function(args)
-        -- vim.snippet.expand(args.body)
-        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        vim.snippet.expand(args.body)
       end,
   },
   mapping = cmp.mapping.preset.insert({
-      -- Use <C-b/f> to scroll the docs
       ['<C-b>'] = cmp.mapping.scroll_docs( -4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      -- Use <C-k/j> to switch in items
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-j>'] = cmp.mapping.select_next_item(),
-      -- Use <CR>(Enter) to confirm selection
-      -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if vim.snippet.active({ direction = 1 }) then
+          vim.snippet.jump(1)
+        elseif cmp.visible() then
+          cmp.select_next_item()
+        elseif has_words_before() then
+          cmp.complete()
+        else
+          fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+        end
+        end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function()
+        if vim.snippet.active({ direction = -1 }) then
+          vim.snippet.jump(-1)
+        elseif cmp.visible() then
+          cmp.select_prev_item()
+        end
+        end, { "i", "s" }),
 
   }),
   window = {
@@ -87,10 +108,10 @@ cmp.setup({
     fields = { 'abbr', 'kind', 'menu' },
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },    -- For nvim-lsp
-    { name = 'luasnip' },     -- For luasnip user
-    { name = 'buffer' },      -- For buffer word completion
-    { name = 'path' },        -- For path completion
+    { name = 'nvim_lsp' },
+    { name = 'snippets' },
+    { name = 'buffer' },
+    { name = 'path' },
     { name = 'nvim_lsp_signature_help' }
   })
 })
