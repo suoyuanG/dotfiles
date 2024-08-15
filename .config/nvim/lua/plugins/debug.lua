@@ -24,7 +24,7 @@ return {
       dap.adapters.gdb = {
         type = "executable",
         command = "gdb",
-        args = { "-i", "dap" }
+        args = { "-i", "dap", "-q" }
       }
        dap.configurations.cpp = {
         {

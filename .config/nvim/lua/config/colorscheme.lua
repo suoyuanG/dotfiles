@@ -6,4 +6,5 @@ if not is_ok then
   vim.notify('colorscheme ' .. colorscheme_light .. ' not found!')
   return
 end
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#F8EDEC" })
 
