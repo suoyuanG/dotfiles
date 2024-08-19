@@ -1,5 +1,4 @@
 {
-    "layer": "top",
     "position": "top",
     "modules-left": [
         "hyprland/workspaces",
@@ -44,13 +43,6 @@
     },
     "hyprland/workspaces": {
         "format": "{icon}",
-        "format-icons": {
-            "1": " ",
-            "2": " ",
-            "3": " ",
-            "4": " ",
-            "5": " "
-        },
         "sort-by-number": true,
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
