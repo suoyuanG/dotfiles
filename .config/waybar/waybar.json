@@ -1,7 +1,7 @@
 {
     "position": "top",
     "modules-left": [
-        "hyprland/workspaces",
+        "sway/workspaces",
         "network",
         "cpu",
         "memory"
@@ -9,7 +9,7 @@
     "modules-center": [
         "mpris",
         "privacy",
-        "hyprland/window"
+        "sway/window"
     ],
     "modules-right": [
         "tray",
