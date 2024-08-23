@@ -15,3 +15,6 @@ I'm too lazy to update the screenshot, but basically not changed much
 |[wofi](https://hg.sr.ht/~scoopta/wofi)|App launcher|
 |[mako](https://github.com/emersion/mako)|Notification daemon|
 |[foot](https://codeberg.org/dnkl/foot)|Terminal emulator|
+|[brightnessctl](https://github.com/Hummer12007/brightnessctl)|Brightness Control|
+|[wlsunset](https://sr.ht/~kennylevinsen/wlsunset/)|Night Light|
+|[wl-clipboard](https://github.com/bugaevc/wl-clipboard)|copy/paste utilities|
