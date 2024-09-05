@@ -4,8 +4,10 @@ set $down j
 set $up k
 set $right l
 
-set $term kitty
+set $term kitty 
 set $menu wofi --show drun
+
+seat seat0 xcursor_theme Tela 25
 
 output * bg /home/zuos/Pictures/pictures/old_memory.jpeg fill scale 1.6
 
@@ -190,13 +192,23 @@ bindsym $mod+Shift+A exec /usr/bin/grim -g "$(slurp -d)" - | wl-copy
 bindsym $mod+Shift+S exec  /usr/bin/grim -l 9 -g "$(slurp -d)" - > "/home/zuos/Pictures/ScreenShot/$(date +'%m-%d_%H-%M').png"
 
 # exec_always --no-startup-id /usr/bin/gentoo-pipewire-launcher restart &
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment DISPLAY \
+                                         SWAYSOCK \
+                                         WAYLAND_DISPLAY \
+                                         XDG_CURRENT_DESKTOP
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY \
+                                                  SWAYSOCK \
+                                                  XDG_CURRENT_DESKTOP=sway \
+                                                  WAYLAND_DISPLAY
+
 exec_always {
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
-    gsettings set org.gnome.desktop.interface cursor-theme 'Tela'
-    gsettings set org.gnome.desktop.interface cursor-size '25'
     gsettings set org.gnome.desktop.interface font-name 'Noto Sans Mono 11'
 }
-exec_always  --no-startup-id /usr/bin/wlsunset -t 3000 -T 3500 &
+exec_always  --no-startup-id /usr/bin/wlsunset -t 2900 -T 3000 &
 exec_always  --no-startup-id polkit-kde-authentication-agent-1 &
 exec_always  --no-startup-id /usr/bin/mako &
 exec_always  --no-startup-id /usr/bin/fcitx5 -d &
