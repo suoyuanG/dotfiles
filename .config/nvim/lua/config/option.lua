@@ -22,3 +22,10 @@ vim.opt.hlsearch = false -- do not highlight matches
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
+vim.opt.termguicolors = true
+vim.o.cmdheight = 0
+vim.api.nvim_create_autocmd("BufWritePost", {
+  callback = function()
+    vim.notify("File saved!", "info", { title = "Notification" })
+  end,
+})
