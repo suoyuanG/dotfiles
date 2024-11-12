@@ -46,6 +46,8 @@ end
 --     history = true,
 -- })
 
+-- vim.cmd(':set winhighlight=' .. cmp.config.window.bordered().winhighlight)
+
 cmp.setup({
    completion = {
       completeopt = 'menu,menuone,noinsert',
@@ -92,21 +94,21 @@ cmp.setup({
     disallow_partial_matching = false,
     disallow_prefix_unmatching = true,
   },
-  formatting = {
-    expandable_indicator = true,
-    format = function(entry, vim_item)
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
-      vim_item.menu = ({
-        buffer = '[Buffer]',
-        nvim_lsp = '[LSP]',
-        luasnip = '[LuaSnip]',
-        nvim_lua = '[Lua]',
-        latex_symbols = '[LaTeX]',
-      })[entry.source.name]
-      return vim_item
-    end,
-    fields = { 'abbr', 'kind', 'menu' },
-  },
+  -- formatting = {
+  --   expandable_indicator = true,
+  --   format = function(entry, vim_item)
+  --     vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+  --     vim_item.menu = ({
+  --       buffer = '[Buffer]',
+  --       nvim_lsp = '[LSP]',
+  --       luasnip = '[LuaSnip]',
+  --       nvim_lua = '[Lua]',
+  --       latex_symbols = '[LaTeX]',
+  --     })[entry.source.name]
+  --     return vim_item
+  --   end,
+  --   fields = { 'abbr', 'kind', 'menu' },
+  -- },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'snippets' },

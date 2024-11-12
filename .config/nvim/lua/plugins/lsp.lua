@@ -26,12 +26,12 @@ return {
           require('plugins.config.treesitter')
         end,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    config = function()
-      require('plugins.config.none-ls')
-    end
-  },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   config = function()
+  --     require('plugins.config.none-ls')
+  --   end
+  -- },
   {
   "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.
