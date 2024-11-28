@@ -11,6 +11,7 @@ vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 
 vim.opt.number = true -- show absolute number
+vim.opt.relativenumber = true
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
