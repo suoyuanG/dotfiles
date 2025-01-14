@@ -4,12 +4,12 @@ set $down j
 set $up k
 set $right l
 
-set $term foot 
+set $term foot
 set $menu wofi --show drun
 
 seat seat0 xcursor_theme Tela 25
 
-output * bg /home/zuos/Pictures/pictures/old_memory.jpeg fill scale 1.6
+output * bg /home/zuos/Pictures/pictures/sun_moutain.jpg fill scale 1.6
 
 exec swayidle -w \
         timeout 600 'sswaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e' \
@@ -36,14 +36,21 @@ for_window [window_role = "dialog"] floating enable
 for_window [window_type = "dialog"] floating enable
 for_window [window_role = "task_dialog"] floating enable
 for_window [window_type = "menu"] floating enable
+
 for_window [app_id = "floating"] floating enable
 for_window [app_id = "floating_update"] floating enable, resize set width 1000px height 600px
+
 for_window [class = "(?i)pinentry"] floating enable
+for_window [app_id = "org.keepassxc.KeePassXC"] floating enabled
 for_window [title = "Administrator privileges required"] floating enabled
 for_window [title = "About Mozilla Firefox"] floating enable
+for_window [title = "关于 Mozilla Firefox"] floating enable
 for_window [window_role = "About"] floating enable
 for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, sticky enable
-for_window [app_id="xdg-desktop-protocol-wlr"] floating enable, resize set width 50% height 50%
+for_window [app_id="xdg-desktop-protocol*"] floating enable, resize set width 1000px height 600px
+for_window [title="Open *"] floating enable, resize set width 1000px height 600px
+for_window [title="Save *"] floating enable, resize set width 1000px height 600px
+
 
 ### Key bindings
 #
@@ -184,6 +191,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+bindsym XF86AudioMute exec /usr/bin/wpctl set-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86MonBrightnessDown exec /usr/bin/brightnessctl set 5%-
@@ -207,10 +215,11 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 exec_always {
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
     gsettings set org.gnome.desktop.interface font-name 'Noto Sans Mono 11'
+    gsettings set org.gnome.desktop.interface cursor-size 25
 }
-exec_always  --no-startup-id /usr/bin/wlsunset -t 2900 -T 3000 &
-exec_always  --no-startup-id polkit-kde-authentication-agent-1 &
-exec_always  --no-startup-id /usr/bin/mako &
-exec_always  --no-startup-id /usr/bin/fcitx5 -d &
-exec_always  --no-startup-id /usr/bin/blueman-applet &
-exec  --no-startup-id /usr/bin/waybar -c /home/zuos/.config/waybar/waybar.json &
+exec_always --no-startup-id /usr/bin/wlsunset -t 2900 -T 3000 &
+exec_always --no-startup-id /usr/bin/mako &
+exec_always --no-startup-id /usr/bin/fcitx5 -d &
+exec_always --no-startup-id /usr/bin/blueman-applet &
+exec_always --no-startup-id /usr/bin/nm-applet &
+exec --no-startup-id /usr/bin/waybar -c /home/zuos/.config/waybar/waybar.json &

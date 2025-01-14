@@ -1,7 +1,7 @@
 {
     "position": "top",
     "modules-left": [
-        "hyprland/workspaces",
+        "sway/workspaces",
         "network",
         "cpu",
         "memory"
@@ -9,7 +9,7 @@
     "modules-center": [
         "mpris",
         "privacy",
-        "hyprland/window"
+        "sway/window"
     ],
     "modules-right": [
         "tray",
@@ -25,7 +25,7 @@
         "offscreen-css" : true,
         "offscreen-css-text": "(inactive)",
         "rewrite": {
-            "(.*) - Mozilla Firefox": "  $1",
+            "(.*) — Mozilla Firefox": "󰈹 $1",
             "(.*) - fish": "> [$1]"
         }
     },
@@ -61,6 +61,7 @@
             "(.*) — Mozilla Firefox": "󰈹 $1",
             "(.*) - bash": "  [$1]",
             "(.*) - Brave": "  [$1]",
+            "(.*) - Chromium": "  [$1]",
             "(.*) - VSCodium": "  [$1]"
         },
         "separate-outputs": true,
@@ -96,11 +97,9 @@
         "max-length": 25
     },
     "network": {
-        "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "tooltip": true,
-        "tooltip-format-wifi": " {essid}({signalStrength}%)",
-        "tooltip-format-ethernet": " {ifname}",
-        "tooltip-format-disconnected": "Disconnected",
+        "format-wifi": " {essid}({signalStrength}%)",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "Disconnected",
         "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
     },
