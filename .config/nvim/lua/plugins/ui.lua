@@ -30,17 +30,21 @@ return {
   },
   {
     'rcarriga/nvim-notify',
-      opts = {
-      stages = 'fade',
-      level = 'DEBUG',
-      timeout = 150,
-      fps = 20,
-      max_height = function() return math.floor(vim.o.lines * 0.50) end,
-      max_width = function() return math.floor(vim.o.columns * 0.45) end,
-      on_open = function(win) vim.api.nvim_win_set_config(win, { focusable = false }) end
-    },
     config = function ()
-      vim.notify = require("notify")
+      require("plugins.config.notify")
     end
+  },
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
   },
 }

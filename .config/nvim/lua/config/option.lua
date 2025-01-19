@@ -27,6 +27,6 @@ vim.opt.termguicolors = true
 vim.o.cmdheight = 0
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
-    vim.notify("File saved!", "info", { title = "Notification" })
+    vim.notify("File saved", "info", { title = "Notification" })
   end,
 })
