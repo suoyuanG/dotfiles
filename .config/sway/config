@@ -9,7 +9,7 @@ set $menu wofi --show drun
 
 seat seat0 xcursor_theme Tela 25
 
-output * bg /home/zuos/Pictures/pictures/sun_moutain.jpg fill scale 1.6
+output * bg /home/zuos/Pictures/pictures/sun_moutain.jpg fill scale 1.5
 
 exec swayidle -w \
         timeout 600 'sswaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e' \
@@ -52,6 +52,18 @@ for_window [title = "About Mozilla Firefox"] floating enable
 for_window [title = "关于 Mozilla Firefox"] floating enable
 for_window [title="Open *"] floating enable, resize set width 1000px height 600px
 for_window [title="Save *"] floating enable, resize set width 1000px height 600px
+
+
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
 
 
 ### Key bindings
@@ -192,14 +204,23 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+set $ps1 Print
+set $ps2 Control+Print
+set $ps3 Alt+Print
+set $ps4 Alt+Control+Print
+set $psf $(xdg-user-dir PICTURES)/ScreenShot/$(date +'%m-%d_%H-%M').png
+
+bindsym $ps1 exec grim - | wl-copy
+bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
+bindsym $ps3 exec grim $psf
+bindsym $ps4 exec grim -g "$(slurp)" $psf
+bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
 
 bindsym XF86AudioMute exec /usr/bin/wpctl set-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
+bindsym XF86AudioLowerVolume exec /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 bindsym XF86MonBrightnessDown exec /usr/bin/brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec /usr/bin/brightnessctl set 5%+
-bindsym $mod+Shift+A exec /usr/bin/grim -g "$(slurp -d)" - | wl-copy
-bindsym $mod+Shift+S exec  /usr/bin/grim -l 9 -g "$(slurp -d)" - > "/home/zuos/Pictures/ScreenShot/$(date +'%m-%d_%H-%M').png"
 
 # exec_always --no-startup-id /usr/bin/gentoo-pipewire-launcher restart &
 exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
@@ -219,9 +240,14 @@ exec_always {
     gsettings set org.gnome.desktop.interface font-name 'Noto Sans Mono 11'
     gsettings set org.gnome.desktop.interface cursor-size 25
 }
-exec_always --no-startup-id /usr/bin/wlsunset -t 2900 -T 3000 &
+exec_always --no-startup-id /usr/bin/wlsunset -t 3300 -T 3300 &
 exec_always --no-startup-id /usr/bin/mako &
 exec_always --no-startup-id /usr/bin/fcitx5 -d &
 exec_always --no-startup-id /usr/bin/blueman-applet &
 exec_always --no-startup-id /usr/bin/nm-applet &
-exec --no-startup-id /usr/bin/waybar -c /home/zuos/.config/waybar/waybar.json &
+
+
+bar {
+        status_command /usr/bin/waybar -c /home/zuos/.config/waybar/waybar.json
+        mode invisible
+}

@@ -27,6 +27,19 @@ window#waybar.hidden {
   color: transparent;
 	background: transparent;
 }
+
+#play-music {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: @base;
+	background-color: @pink;
+}
+
 #network {
 	margin-top: 6px;
 	margin-left: 8px;
@@ -124,6 +137,18 @@ window#waybar.hidden {
 	transition: none;
 	color: @base;
 	background-color: @peach;
+}
+
+#image {
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: @base;
+	background-color: @lavender;
 }
 
 #workspaces {

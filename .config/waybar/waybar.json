@@ -4,7 +4,7 @@
         "sway/workspaces",
         "network",
         "cpu",
-        "memory"
+        "memory",
     ],
     "modules-center": [
         "mpris",
@@ -18,7 +18,8 @@
         "clock",
         "battery"
     ],
-    "sway/window": {
+
+    "niri/window": {
         "format": "{}",
         "max-length": 35,
         "all-outputs" : true,
@@ -29,7 +30,7 @@
             "(.*) - fish": "> [$1]"
         }
     },
-    "sway/workspaces": {
+    "niri/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
@@ -41,15 +42,27 @@
             "5": " "
         }
     },
+    "sway/window": {
+        "format": "{}",
+        "max-length": 35,
+        "all-outputs" : true,
+        "offscreen-css" : true,
+        "offscreen-css-text": "(inactive)",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "󰈹 $1",
+            "(.*) - fish": "> [$1]",
+            "(.*) - Brave": "  [$1]",
+            "(.*) - Chromium": "  [$1]",
+            "(.*) - VSCodium": "  [$1]"
+        }
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}"
+    },
     "hyprland/workspaces": {
         "format": "{icon}",
-        "format-icons": {
-            "1": " ",
-            "2": " ",
-            "3": " ",
-            "4": " ",
-            "5": " "
-        },
         "sort-by-number": true,
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
