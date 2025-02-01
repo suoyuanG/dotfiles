@@ -30,3 +30,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     vim.notify("File saved", "info", { title = "Notification" })
   end,
 })
+
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '';
+  }
+})
