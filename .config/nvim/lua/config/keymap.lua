@@ -76,5 +76,4 @@ map('n', '<space>tev', '<cmd> ToggleTerm direction=vertical<cr>', opts)
 map('n', '<space>e', '<cmd> Neotree filesystem reveal left<cr>', opts)
 map('n', '<space>ec', '<cmd> Neotree close<cr>', opts)
 
-map('n', '<leader>f', '<cmd>vim.lsp.buf.format({async = true})<CR>', { noremap = true, silent = true })
-map('v', '<leader>f', '<cmd>vim.lsp.buf.range_formatting({})<CR>', { noremap = true, silent = true })
+map('n', '<space>lf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
