@@ -6,37 +6,25 @@ return {
       "nvim-lua/lsp-status.nvim",
     },
     config = function()
-        require("plugins.config.ui_bar_dark")
-    end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
-    config = function ()
-      require("plugins.config.ui_fs_tree")
+      require("plugins.config.ui_bar_dark")
     end,
   },
   {
     "lewis6991/gitsigns.nvim",
-    config = function ()
-     require('gitsigns').setup()
+    config = function()
+      require('gitsigns').setup()
     end
   },
   {
     'rcarriga/nvim-notify',
-    config = function ()
+    config = function()
       require("plugins.config.notify")
     end
   },
-  {'romgrk/barbar.nvim',
+  {
+    'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
@@ -46,5 +34,21 @@ return {
       -- insert_at_start = true,
       -- …etc.
     },
+  },
+  {
+    'echasnovski/mini.files',
+    version = '*',
+    dependencies = {
+      {
+        'echasnovski/mini.icons',
+        version = '*',
+        config = function ()
+          require('mini.icons').setup()
+        end
+      }
+    },
+    config = function()
+      require('mini.files').setup()
+    end
   },
 }

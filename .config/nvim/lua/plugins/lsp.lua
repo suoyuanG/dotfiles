@@ -1,6 +1,9 @@
 return {
     {
         "williamboman/mason.nvim",
+    dependencies = {
+      "echasnovski/mini.completion",
+    },
         config = function()
             require('plugins.config.lsp')
         end,
@@ -10,28 +13,22 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function ()
---      require('plugins.config.lsp_config_opt')
+     -- require('plugins.config.lsp_config_opt')
     end,
-    config = function ()
-    end
+    
+    config = function()
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter',
         dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
         build = ':TSUpdate',
-        -- prevent flickering when opening file
         event = 'BufRead',
         cond = vim.g.is_not_large,
         config = function()
           require('plugins.config.treesitter')
         end,
   },
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   config = function()
-  --     require('plugins.config.none-ls')
-  --   end
-  -- },
   {
   "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.

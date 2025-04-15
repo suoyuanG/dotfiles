@@ -73,7 +73,7 @@ map('n', '<Space>teh', '<cmd> ToggleTerm direction=horizontal<cr>', opts)
 map('n', '<space>tef', '<cmd> ToggleTerm direction=float<cr>', opts)
 map('n', '<space>tev', '<cmd> ToggleTerm direction=vertical<cr>', opts)
 
-map('n', '<space>e', '<cmd> Neotree filesystem reveal left<cr>', opts)
-map('n', '<space>ec', '<cmd> Neotree close<cr>', opts)
+map('n', '<space>e', '<cmd> lua MiniFiles.open() <cr>', opts)
+map('n', '<space>ec', '<cmd> lua MiniFiles.close()<cr>', opts)
 
 map('n', '<space>lf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
