@@ -56,65 +56,8 @@ mason_lspconfig.setup({
   ensure_installed = { 'pylsp', 'lua_ls' },
 })
 
-mason_lspconfig.setup_handlers({
-  function(server_name)
-    lspconfig[server_name].setup({
-      capabilities = capabilities,
-    })
-  end,
-  ["lua_ls"] = function()
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-          completion = {
-            callSnippet = "Replace",
-          },
-        },
-      },
-    })
-  end,
-  lspconfig.clangd.setup({
-    on_attach = function(client, buffer)
-      if client.supports_method("textDocument/inlayHint", { bufnr = buffer }) then
-        vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
-      end
-      if client.supports_method("textDocument/codeLens", { bufnr = buffer }) then
-        local cur_bufnr = vim.api.nvim_get_current_buf();
-        if buffer == cur_bufnr then
-          vim.lsp.codelens.refresh({ bufnr = cur_bufnr })
-        end
-        vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
-          group = require("util").augroup("lsp_codelens"),
-          buffer = buffer,
-          callback = function()
-            vim.lsp.codelens.refresh({ bufnr = buffer })
-          end,
-        })
-      end
-      navic.attach(client, buffer)
-    end,
-    capabilities = capabilities,
-    cmd = {
-      "clangd",
-      "-j=12",
-      "--background-index",
-      "--cross-file-rename",
-      "--clang-tidy",
-      "--all-scopes-completion",
-      "--cross-file-rename",
-      "--completion-style=detailed",
-      "--header-insertion-decorators",
-      "--header-insertion=iwyu",
-      "--pch-storage=memory",
-    },
-    settings = {
-      completions = {
-        completeFunctionCalls = true
-      }
-    },
-  })
-})
+lspconfig.clangd.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
