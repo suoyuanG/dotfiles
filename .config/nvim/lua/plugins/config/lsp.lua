@@ -80,3 +80,9 @@ lspconfig.lua_ls.setup {
     navic.attach(client, bufnr)
   end
 }
+
+lspconfig.rust_analyzer.setup {
+  on_attach = function(client, bufnr)
+      navic.attach(client, bufnr)
+    end
+}

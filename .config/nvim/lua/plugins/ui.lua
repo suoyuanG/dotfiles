@@ -10,6 +10,12 @@ return {
     end,
   },
   {
+    "Bekaboo/deadcolumn.nvim",
+    config = function ()
+      require("deadcolumn").setup({ columns = 80 })
+    end
+  },
+  {
     "lewis6991/gitsigns.nvim",
     config = function()
       require('gitsigns').setup()
@@ -51,4 +57,14 @@ return {
       require('mini.files').setup()
     end
   },
+  {
+  "OXY2DEV/markview.nvim",
+  lazy = false,
+  opts = {
+    preview = {
+      filetypes = { "markdown", "codecompanion" },
+      ignore_buftypes = {},
+    },
+  },
+},
 }
