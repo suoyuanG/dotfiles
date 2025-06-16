@@ -10,7 +10,7 @@ return {
       require('plugins.config.telescope')
     end,
   },
-  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -18,7 +18,7 @@ return {
   {
     'numToStr/Comment.nvim',
     event = "VeryLazy",
-    config = function ()
+    config = function()
       require('Comment').setup()
     end
   },

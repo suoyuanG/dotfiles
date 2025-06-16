@@ -54,10 +54,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 mason_lspconfig.setup({
   ensure_installed = { 'pylsp', 'lua_ls' },
+  automatic_enable = false
 })
 
 lspconfig.clangd.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
+}
+
+lspconfig.tinymist.setup {
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
+}
+
+lspconfig.pylsp.setup {
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
+}
+
+lspconfig.lua_ls.setup {
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
 }

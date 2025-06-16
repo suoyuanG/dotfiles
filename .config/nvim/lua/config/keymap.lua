@@ -1,6 +1,6 @@
 local opts = {
-    noremap = true,
-    silent = true,
+  noremap = true,
+  silent = true,
 }
 local map = vim.api.nvim_set_keymap
 
@@ -50,8 +50,8 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 map("n", "<Space>tf", "<cmd>Telescope find_files<cr>", opts)
 map("n", "<Space>tr", "<cmd>Telescope oldfiles<cr>", opts)
-map("n", "<Space>tg", "<cmd>Telescope live_grep<cr>",  opts)
-map("n", "<Space>ts", "<cmd>Telescope grep_string<cr>",  opts)
+map("n", "<Space>tg", "<cmd>Telescope live_grep<cr>", opts)
+map("n", "<Space>ts", "<cmd>Telescope grep_string<cr>", opts)
 map("n", "<Space>tt", "<cmd>Telescope<cr>", opts)
 map("n", "<Space>tgc", "<cmd>Telescope git_commits<cr>", opts)
 map("n", "<Space>tgs", "<cmd>Telescope git_status<cr>", opts)

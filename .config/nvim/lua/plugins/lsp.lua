@@ -1,36 +1,45 @@
 return {
-    {
-        "williamboman/mason.nvim",
+  {
+    "williamboman/mason.nvim",
     dependencies = {
       "echasnovski/mini.completion",
     },
-        config = function()
-            require('plugins.config.lsp')
-        end,
-    },
+    config = function()
+      require('plugins.config.lsp')
+    end,
+  },
 
-	"williamboman/mason-lspconfig.nvim",
+  "williamboman/mason-lspconfig.nvim",
   {
     "neovim/nvim-lspconfig",
-    opts = function ()
-     -- require('plugins.config.lsp_config_opt')
+    opts = function()
+      -- require('plugins.config.lsp_config_opt')
     end,
-    
+
     config = function()
     end,
   },
   {
-    'nvim-treesitter/nvim-treesitter',
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-        build = ':TSUpdate',
-        event = 'BufRead',
-        cond = vim.g.is_not_large,
-        config = function()
-          require('plugins.config.treesitter')
-        end,
+    "lervag/vimtex",
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = "zathura"
+    end
   },
   {
-  "folke/trouble.nvim",
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    build = ':TSUpdate',
+    event = 'BufRead',
+    cond = vim.g.is_not_large,
+    config = function()
+      require('plugins.config.treesitter')
+    end,
+  },
+  {
+    "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
     keys = {

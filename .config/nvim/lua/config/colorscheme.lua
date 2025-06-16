@@ -7,4 +7,3 @@ if not is_ok then
   return
 end
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#F8EDEC" })
-
