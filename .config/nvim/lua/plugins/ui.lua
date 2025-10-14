@@ -11,7 +11,7 @@ return {
   },
   {
     "Bekaboo/deadcolumn.nvim",
-    config = function ()
+    config = function()
       require("deadcolumn").setup({ columns = 80 })
     end
   },
@@ -58,13 +58,12 @@ return {
     end
   },
   {
-  "OXY2DEV/markview.nvim",
-  lazy = false,
-  opts = {
-    preview = {
-      filetypes = { "markdown", "codecompanion" },
-      ignore_buftypes = {},
+    "OXY2DEV/markview.nvim",
+    opts = {
+      preview = {
+        filetypes = { "markdown", "codecompanion" },
+        ignore_buftypes = {},
+      },
     },
   },
-},
 }

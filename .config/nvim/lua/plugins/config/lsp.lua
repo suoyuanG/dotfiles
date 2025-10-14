@@ -1,6 +1,5 @@
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 local mason_lspconfig = require("mason-lspconfig")
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local navic = require("nvim-navic")
 
 require('mason').setup({
@@ -57,32 +56,44 @@ mason_lspconfig.setup({
   automatic_enable = false
 })
 
-lspconfig.clangd.setup {
+lspconfig("clangd",  {
+  init_options = {
+    fallbackFlags = {
+      '--std=c++23',
+      -- '-I/path/to/custom/include',
+    },
+
+    arguments = {
+      '--background-index',
+      '--clang-tidy',
+      '-j=12',
+    },
+  },
+
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
-}
+})
 
-lspconfig.tinymist.setup {
+lspconfig("tinymist", {
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
-}
+})
 
-lspconfig.pylsp.setup {
+lspconfig("pylsp", {
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
-}
+})
 
-lspconfig.lua_ls.setup {
+lspconfig("lua_ls", {
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
-}
+})
 
-lspconfig.rust_analyzer.setup {
-  on_attach = function(client, bufnr)
-      navic.attach(client, bufnr)
-    end
-}
+vim.lsp.enable("clangd")
+vim.lsp.enable("tinymist")
+vim.lsp.enable("pylsp")
+vim.lsp.enable("lua_ls")

@@ -10,12 +10,9 @@ return {
   },
 
   "williamboman/mason-lspconfig.nvim",
+
   {
     "neovim/nvim-lspconfig",
-    opts = function()
-      -- require('plugins.config.lsp_config_opt')
-    end,
-
     config = function()
     end,
   },
@@ -30,7 +27,10 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "OXY2DEV/markview.nvim",
+    },
     build = ':TSUpdate',
     event = 'BufRead',
     cond = vim.g.is_not_large,
